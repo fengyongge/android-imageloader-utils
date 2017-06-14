@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingTop="10dp" >
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/photo"
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FF000000"/>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:id="@+id/user_rl"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@id/photo" >
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" >
+
+                        <RelativeLayout
+                            android:id="@+id/foucus_RL"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true" >
+
+                            <TextView
+                                android:id="@+id/foucus_text"
+                                android:layout_width="65dp"
+                                android:layout_height="30dp"
+                                android:background="@drawable/friend_btn_fouc"
+                                android:enabled="true"
+                                android:gravity="center"
+                                android:text="已关注"
+                                android:textColor="@color/mm_friend_text"
+                                android:textSize="12sp" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/delete_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/delete"
+                            android:visibility="gone" />
+
+                        <LinearLayout
+                            android:id="@+id/user_info"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_toLeftOf="@id/foucus_RL"
+                            android:orientation="vertical" >
+
+
+                            <TextView
+                                android:id="@+id/name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingRight="5dip"
+                                android:textColor="@color/deep_grey"
+                                android:textSize="16sp"
+                                android:text="冯冯冯"
+                                />
+
+                            <TextView
+                                android:id="@+id/trans_form"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingRight="5dip"
+                                android:textColor="@color/deep_grey"
+                                android:textSize="13sp"
+                                android:text="转自张三"
+                                />
+
+                            <TextView
+                                android:id="@+id/date"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:gravity="center_vertical"
+                                android:paddingRight="5dip"
+                                android:textColor="@color/light_grey"
+                                android:textSize="13sp"
+                                android:text="3小时前"
+                                />
+
+                            <LinearLayout
+                                android:id="@+id/tag_LL"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:orientation="horizontal" >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                />
+
+                                <TextView
+                                    android:id="@+id/tag_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:gravity="center_vertical"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/content_text"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/user_info"
+                            android:autoLink="all"
+                            android:textColor="@color/deep_grey"
+                            android:text="哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒"
+                            />
+
+                        <TextView
+                            android:id="@+id/content_more"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/content_text"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginTop="5dp"
+                            android:gravity="left"
+                            android:text="查看全部"
+                            android:textColor="@color/tab_blue"
+                            android:visibility="gone" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/user_rl"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="10dip"
+                    android:orientation="vertical" >
+
+                    <!-- 图片内容 -->
+
+
+                    <com.fengyongge.friendscircle.view.NineGridlayout
+                        android:id="@+id/iv_ngrid_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp" />
+
+                    <com.fengyongge.friendscircle.view.CustomImageView
+                        android:id="@+id/iv_oneimage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:scaleType="fitXY" />
+
+
+
+
+                    <TextView
+                        android:id="@+id/location_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_toRightOf="@id/date"
+                        android:textSize="12sp" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:orientation="horizontal" >
+
+                        <LinearLayout
+                            android:id="@+id/share_LL"
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical|left"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/share_hui" />
+
+
+                            <TextView
+                                android:id="@+id/share_num"
+                                android:layout_width="wrap_content"
+                                android:layout_height="fill_parent"
+                                android:layout_marginLeft="2dp"
+                                android:gravity="center_vertical"
+                                android:text="分享"
+                                android:textColor="@color/deep_grey"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/carry_LL"
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical|left"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/carry_form_hui" />
+
+                            <TextView
+                                android:id="@+id/carry_story"
+                                android:layout_width="wrap_content"
+                                android:layout_height="fill_parent"
+                                android:layout_marginLeft="2dp"
+                                android:gravity="center_vertical"
+                                android:text="搬用"
+                                android:textColor="@color/deep_grey"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/favuor_LL"
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical|left"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                android:id="@+id/favorite_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/freight_praise_selector"
+                                android:enabled="false" />
+
+                            <TextView
+                                android:id="@+id/favorite_num"
+                                android:layout_width="wrap_content"
+                                android:layout_height="fill_parent"
+                                android:layout_marginLeft="2dp"
+                                android:gravity="center_vertical"
+                                android:text="喜欢"
+                                android:textColor="@color/deep_grey"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/discuss_LL"
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical|left"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/friend_discuss" />
+
+                            <TextView
+                                android:id="@+id/discuss_num"
+                                android:layout_width="wrap_content"
+                                android:layout_height="fill_parent"
+                                android:layout_marginLeft="2dp"
+                                android:gravity="center_vertical"
+                                android:text="评论"
+                                android:textColor="@color/deep_grey"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- 回复 -->
+
+                    <LinearLayout
+                        android:id="@+id/like_LL"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/like_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/deep_grey"
+                            android:textSize="12sp" />
+
+                        <RelativeLayout
+                            android:id="@+id/like_rl"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginTop="10dp"
+                            android:visibility="gone"
+                            >
+
+                            <ImageView
+                                android:id="@+id/like_right_arrow"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginBottom="3dp"
+                                android:background="@drawable/right_arrow" />
+
+                            <com.fengyongge.friendscircle.view.MyGridView
+                                android:id="@+id/like_image"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toLeftOf="@id/like_right_arrow"
+                                android:gravity="center"
+                                android:numColumns="7"
+                                android:scrollbars="none" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/reply_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" >
+
+                        <RelativeLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content" >
+
+                            <TextView
+                                android:id="@+id/text_m"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="回复"
+                                android:textColor="@color/light_grey" />
+
+                            <View
+                                android:layout_width="fill_parent"
+                                android:layout_height="1dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="10dp"
+                                android:layout_toLeftOf="@id/text_m"
+                                android:background="@color/light_grey" />
+
+                            <View
+                                android:layout_width="fill_parent"
+                                android:layout_height="1dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="10dp"
+                                android:layout_toRightOf="@id/text_m"
+                                android:background="@color/light_grey" />
+                        </RelativeLayout>
+                        <!-- 赞 -->
+
+                        <com.fengyongge.friendscircle.view.MyListView
+                            android:id="@+id/reply_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="fill_parent"
+                            android:background="@null"
+                            android:divider="@null" />
+
+                        <TextView
+                            android:id="@+id/reply_more"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginTop="5dp"
+                            android:gravity="left"
+                            android:text="查看全部回复"
+                            android:textColor="@color/tab_blue" />
+                        <!-- 回复内容 -->
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/top_view"
+            android:layout_width="fill_parent"
+            android:layout_height="10dp"
+            android:background="@color/xian" />
+    </LinearLayout>
+
+</FrameLayout>
