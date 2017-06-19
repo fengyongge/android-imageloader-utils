@@ -4,6 +4,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +23,11 @@ import com.fengyongge.friendscircle.utils.StringUtils;
 import com.fengyongge.friendscircle.utils.ToastUtils;
 import com.fengyongge.friendscircle.view.CustomImageView;
 import com.fengyongge.friendscircle.view.NineGridlayout;
+import com.zzti.fengyongge.imagepicker.PhotoPreviewActivity;
+import com.zzti.fengyongge.imagepicker.model.PhotoModel;
+import com.zzti.fengyongge.imagepicker.util.CommonUtils;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -170,13 +175,35 @@ public class FirendsCircleActivity extends AppCompatActivity {
                         public void onClick(View arg0) {
                             // TODO Auto-generated method stub
 
+                            List<PhotoModel> single_photos = new ArrayList<PhotoModel>();
+                            for (int i = 0; i < list.get(positon).getPic().size(); i++) {
+                                PhotoModel photoModel = new PhotoModel();
+                                photoModel.setOriginalPath(list.get(positon).getPic().get(0).getImg_thumb());
+                                single_photos.add(photoModel);
+                            }
+
+                            Bundle bundle = new Bundle();
+                            bundle.putSerializable("photos",(Serializable)single_photos);
+                            bundle.putInt("position", 0);//position预览图片地址
+                            bundle.putBoolean("isSave",true);//isSave表示是否可以保存预览图片，建议只有预览网络图片时设置true
+                            CommonUtils.launchActivity(FirendsCircleActivity.this, PhotoPreviewActivity.class, bundle);
+
                         }
                     });
                 } else {
                     holder.ivOneimage.setVisibility(View.GONE);
                     holder.ivNgridLayout.setVisibility(View.VISIBLE);
                     final ArrayList<PicBean> list1 = (ArrayList<PicBean>) list.get(positon).getPic();
-                    holder.ivNgridLayout.setImagesData(list1, FirendsCircleActivity.this);
+
+
+                    List<PhotoModel> single_photos = new ArrayList<PhotoModel>();
+                    for (int i = 0; i <list.get(positon).getPic().size() ; i++) {
+                        PhotoModel photoModel = new PhotoModel();
+                        photoModel.setOriginalPath(list.get(positon).getPic().get(i).getImg_thumb());
+                        single_photos.add(photoModel);
+                    }
+
+                    holder.ivNgridLayout.setImagesData(single_photos, FirendsCircleActivity.this);
                 }
             }
 
@@ -264,11 +291,13 @@ public class FirendsCircleActivity extends AppCompatActivity {
                 ViewGroup.LayoutParams.WRAP_CONTENT, true);
         editWindow.setBackgroundDrawable(getResources().getDrawable(R.color.white));
         editWindow.setOutsideTouchable(true);
+
         replyEdit = (EditText) editView.findViewById(R.id.reply_ET);
         sendBtn = editView.findViewById(R.id.send_msg);
         stick_TV = editView.findViewById(R.id.stick_TV);
 
         sendBtn.setOnClickListener(new View.OnClickListener() {
+
             private FriendBean remove;
             @Override
             public void onClick(View arg0) {
@@ -297,6 +326,7 @@ public class FirendsCircleActivity extends AppCompatActivity {
                             remove.setComment_total("1");
                         }
                         list.add(discuss_friend.getPosition(), remove);
+
                     }
 //                    adpter.setData(list);
                     adapter.notifyDataSetChanged();
@@ -307,6 +337,8 @@ public class FirendsCircleActivity extends AppCompatActivity {
             }
         });
 
+
+
         replyEdit.setOnLongClickListener(new View.OnLongClickListener() {
 
             @Override
@@ -316,6 +348,8 @@ public class FirendsCircleActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+
 
         stick_TV.setOnClickListener(new View.OnClickListener() {
 

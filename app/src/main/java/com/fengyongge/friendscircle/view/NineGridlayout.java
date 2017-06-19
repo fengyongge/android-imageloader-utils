@@ -1,6 +1,7 @@
 package com.fengyongge.friendscircle.view;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
@@ -12,6 +13,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.fengyongge.friendscircle.bean.PicBean;
 import com.fengyongge.friendscircle.utils.ScreenTools;
+import com.zzti.fengyongge.imagepicker.PhotoPreviewActivity;
+import com.zzti.fengyongge.imagepicker.model.PhotoModel;
+import com.zzti.fengyongge.imagepicker.util.CommonUtils;
 
 
 /**
@@ -64,7 +68,7 @@ public class NineGridlayout extends ViewGroup {
 
         for (int i = 0; i < childrenCount; i++) {
             childrenView = (CustomImageView) getChildAt(i);
-            childrenView.setImageUrl(((PicBean) listData.get(i)).getImg_thumb());
+            childrenView.setImageUrl(((PhotoModel) listData.get(i)).getOriginalPath());
 //            ImageLoader.getInstance().displayImage(((PicBean) listData.get(i)).getImg_thumb(), childrenView);
             int[] position = findPosition(i);
             int left = (singleWidth + gap) * position[1];
@@ -80,10 +84,10 @@ public class NineGridlayout extends ViewGroup {
 				public void onClick(View arg0) {
 
 					Bundle bundle = new Bundle();
-					bundle.putSerializable("pics",(Serializable) listData);
+					bundle.putSerializable("photos",(Serializable) listData);
 					bundle.putInt("position", (Integer)arg0.getTag());
-					bundle.putString("save","save");
-//					CommonUtils.launchActivity(context, PhotoPreviewActivity.class, bundle);
+					bundle.putBoolean("isSave",true);
+					CommonUtils.launchActivity(context, PhotoPreviewActivity.class, bundle);
 				}
 			});
             childrenView.setOnLongClickListener(new OnLongClickListener() {
@@ -122,7 +126,7 @@ public class NineGridlayout extends ViewGroup {
     }
 
 
-    public void setImagesData(List<PicBean> lists,Context context) {
+    public void setImagesData(List<PhotoModel> lists,Context context) {
     	this.context = context;
         if (lists == null || lists.isEmpty()) {
             return;
