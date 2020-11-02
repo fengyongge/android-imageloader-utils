@@ -1,15 +1,16 @@
 apply plugin: 'com.android.application'
+//apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
     defaultConfig {
-        applicationId "com.fengyongge.friendscircle"
+        applicationId "com.fengyongge.imageloaderutilssample"
         minSdkVersion 15
-        targetSdkVersion 25
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
     buildTypes {
         release {
@@ -20,28 +21,24 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-
-
-
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
-    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
-    compile 'com.alibaba:fastjson:1.1.55.android'
-    compile 'com.orhanobut:logger:1.15'
-    compile 'com.jakewharton:butterknife:8.5.1'
     testCompile 'junit:junit:4.12'
+
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    implementation 'com.jakewharton:butterknife:8.5.1'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.orhanobut:logger:1.15'
+    implementation 'com.alibaba:fastjson:1.1.55.android'
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
+    implementation 'com.zzti.fengyongge:imagepicker:1.1.0'
+    api project(":imageloaderutils")
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    compile 'com.squareup.picasso:picasso:2.5.2'
-
-    compile 'de.hdodenhof:circleimageview:2.1.0'
-
-    compile 'com.zzti.fengyongge:imagepicker:1.1.0'
-
-
-
+}
+repositories {
+    mavenCentral()
 }

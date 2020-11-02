@@ -168,13 +168,13 @@
                     <!-- 图片内容 -->
 
 
-                    <com.fengyongge.friendscircle.view.NineGridlayout
+                    <com.fengyongge.imageloaderutilssample.friendscircle.view.NineGridlayout
                         android:id="@+id/iv_ngrid_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp" />
 
-                    <com.fengyongge.friendscircle.view.CustomImageView
+                    <com.fengyongge.imageloaderutilssample.friendscircle.view.CustomImageView
                         android:id="@+id/iv_oneimage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -334,7 +334,7 @@
                                 android:layout_marginBottom="3dp"
                                 android:background="@drawable/right_arrow" />
 
-                            <com.fengyongge.friendscircle.view.MyGridView
+                            <com.fengyongge.imageloaderutilssample.friendscircle.view.MyGridView
                                 android:id="@+id/like_image"
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
@@ -381,7 +381,7 @@
                         </RelativeLayout>
                         <!-- 赞 -->
 
-                        <com.fengyongge.friendscircle.view.MyListView
+                        <com.fengyongge.imageloaderutilssample.friendscircle.view.MyListView
                             android:id="@+id/reply_list"
                             android:layout_width="match_parent"
                             android:layout_height="fill_parent"
