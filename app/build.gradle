@@ -2,12 +2,12 @@ apply plugin: 'com.android.application'
 //apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "28.0.3"
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "com.fengyongge.imageloaderutilssample"
         minSdkVersion 15
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
@@ -21,11 +21,11 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
 
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
     implementation 'com.jakewharton:butterknife:8.5.1'
@@ -34,9 +34,9 @@ dependencies {
     implementation 'com.alibaba:fastjson:1.1.55.android'
     implementation 'de.hdodenhof:circleimageview:2.1.0'
     implementation 'com.zzti.fengyongge:imagepicker:1.1.0'
-    api project(":imageloaderutils")
     implementation "androidx.core:core-ktx:+"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation project(":imageloaderutils")
 
 }
 repositories {

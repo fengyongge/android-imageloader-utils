@@ -1,12 +1,10 @@
 package com.fengyongge.imageloaderutilssample;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-
-import com.fengyongge.imageloaderutilssample.friendscircle.FirendsCircleActivity;
-
+import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
+import com.fengyongge.imageloaderutils.ImageLoaderUtil;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,12 +14,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.tvTest).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, FirendsCircleActivity.class));
-            }
-        });
+        ImageLoaderUtil.getInstance().setRequestOptions(R.drawable.back_arrow,R.drawable.back_arrow,R.drawable.back_arrow);
+
+        ImageView imageView = findViewById(R.id.imageView1);
+        ImageLoaderUtil.getInstance().loadImage("http://gank.io/images/dc75cbde1d98448183e2f9514b4d1320",imageView);
+        ImageView imageView2 = findViewById(R.id.imageView2);
+        ImageLoaderUtil.getInstance().loadCircleImage("http://gank.io/images/f4f6d68bf30147e1bdd4ddbc6ad7c2a2",imageView2);
+        ImageView imageView3 = findViewById(R.id.imageView3);
+        ImageLoaderUtil.getInstance().loadRoundImage(10,"http://gank.io/images/dc75cbde1d98448183e2f9514b4d1320",imageView3);
+
+
     }
 
 
