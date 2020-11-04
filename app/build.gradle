@@ -6,7 +6,7 @@ android {
     buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "com.fengyongge.imageloaderutilssample"
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -22,6 +22,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.2.0'
     androidTestCompile('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })

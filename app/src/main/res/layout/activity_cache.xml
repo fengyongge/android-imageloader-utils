@@ -14,26 +14,25 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tvTest1"
-            android:text="图片预览"
+            android:id="@+id/tvDisk"
+            android:text="磁盘缓存大小"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="100dp"/>
 
         <TextView
-            android:id="@+id/tvTest2"
-            android:text="图片下载"
+            android:id="@+id/tvMemory"
+            android:text="内存缓存大小"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="100dp"/>
 
         <TextView
             android:id="@+id/tvTest3"
-            android:text="缓存大小"
+            android:text="磁盘缓存大小"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="100dp"/>
-
 
     </LinearLayout>
 

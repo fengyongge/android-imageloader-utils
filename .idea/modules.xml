@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/FriendsCircle.iml" filepath="$PROJECT_DIR$/FriendsCircle.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android-imageloader-utils.iml" filepath="$PROJECT_DIR$/.idea/modules/android-imageloader-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android-imageloader-utils.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android-imageloader-utils.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/imageloaderutils/android-imageloader-utils.imageloaderutils.iml" filepath="$PROJECT_DIR$/.idea/modules/imageloaderutils/android-imageloader-utils.imageloaderutils.iml" />
     </modules>
   </component>
 </project>
