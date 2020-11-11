@@ -13,7 +13,7 @@ public class PreViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pre_view);
 
-        ImageLoaderSdk.getInstance().setRequestOptions(R.drawable.default_image,R.drawable.default_image,R.drawable.default_image);
+        initImageloader();
 
         ImageView imageView = findViewById(R.id.imageView1);
         ImageLoaderSdk.getInstance().loadImage("http://gank.io/images/dc75cbde1d98448183e2f9514b4d1320",imageView);
@@ -22,5 +22,13 @@ public class PreViewActivity extends AppCompatActivity {
         ImageView imageView3 = findViewById(R.id.imageView3);
         ImageLoaderSdk.getInstance().loadRoundImage(10,"http://gank.io/images/dc75cbde1d98448183e2f9514b4d1320",imageView3);
 
+    }
+
+    void initImageloader(){
+        ImageLoaderSdk.getInstance().setPlaceholder(R.drawable.default_image);
+        ImageLoaderSdk.getInstance().setError(R.drawable.default_image);
+        ImageLoaderSdk.getInstance().setFallback(R.drawable.default_image);
+        ImageLoaderSdk.getInstance().setDiskCache(true);
+        ImageLoaderSdk.getInstance().setMemoryCache(true);
     }
 }

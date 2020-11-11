@@ -6,7 +6,7 @@ import android.content.res.Configuration;
 import androidx.annotation.NonNull;
 
 import com.fengyongge.imageloaderutils.ImageLoaderSdk;
-import com.fengyongge.imageloaderutils.constants.ImageLoaderStrategy;
+import com.fengyongge.imageloaderutils.constants.ImageLoaderStrategyEnum;
 
 /**
  * @author fengyongge
@@ -17,8 +17,6 @@ public class MyApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        //设置策略，选择底层加载图片框架
-        ImageLoaderSdk.getInstance().setImageLoaderStrategy(ImageLoaderStrategy.ImageLoaderStrategy_TYPE_UNIVERSAL);
     }
 
 

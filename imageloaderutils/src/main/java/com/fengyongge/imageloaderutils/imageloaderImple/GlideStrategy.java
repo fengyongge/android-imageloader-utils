@@ -31,14 +31,13 @@ import java.io.File;
  * @author fengyongge
  * @data 2020/11/2
  */
-public class GlideImageLoaderStrategy implements ImageLoaderStrategy {
+public class GlideStrategy implements ImageLoaderStrategy {
 
     @Override
     public void loadImageWithAppCxt(String url, ImageView imageView) {
         Glide.with(imageView.getContext().getApplicationContext())
                 .load(url)
-                .apply(ImageLoaderSdk.getInstance().getRequestOptions()!=null?
-                        ImageLoaderSdk.getInstance().getRequestOptions():new RequestOptions())
+                .apply(ImageLoaderSdk.getInstance().getRequestOptions())
                 .into(imageView);
     }
 
@@ -48,6 +47,14 @@ public class GlideImageLoaderStrategy implements ImageLoaderStrategy {
                 .load(url)
                 .apply(ImageLoaderSdk.getInstance().getRequestOptions())
                 .into(imageView);
+    }
+
+    @Override
+    public void preLoadImage(Context context,String url) {
+        Glide.with(context)
+                .load(url)
+                .apply(ImageLoaderSdk.getInstance().getRequestOptions())
+                .preload();
     }
 
     @Override
@@ -120,7 +127,8 @@ public class GlideImageLoaderStrategy implements ImageLoaderStrategy {
 
     @Override
     public void loadCircleBorderImage(String url, ImageView imageView, float borderWidth, int borderColor, int heightPx, int widthPx) {
-        Glide.with(imageView.getContext()).load(url)
+        Glide.with(imageView.getContext())
+                .load(url)
                 .apply(ImageLoaderSdk.getInstance().getRequestOptions())
                 .transform(new GlideCircleTransform(imageView.getContext(),borderWidth,borderColor,heightPx,widthPx))
                 .into(imageView);
@@ -130,6 +138,15 @@ public class GlideImageLoaderStrategy implements ImageLoaderStrategy {
     public void loadGifImage(String url, ImageView imageView) {
         Glide.with(imageView.getContext())
                 .asGif()
+                .load(url)
+                .apply(ImageLoaderSdk.getInstance().getRequestOptions())
+                .into(imageView);
+    }
+
+    @Override
+    public void loadGif2CommonImage(String url, ImageView imageView) {
+        Glide.with(imageView.getContext())
+                .asBitmap()
                 .load(url)
                 .apply(ImageLoaderSdk.getInstance().getRequestOptions())
                 .into(imageView);

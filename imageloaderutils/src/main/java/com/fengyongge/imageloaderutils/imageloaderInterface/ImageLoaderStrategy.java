@@ -19,6 +19,8 @@ public interface ImageLoaderStrategy {
 
     void loadImage(Context context, String url, ImageView imageView);
 
+    void preLoadImage(Context context,String url);
+
     void loadImage(String url, ImageView imageView);
 
     void loadImageAssets(String asstes, ImageView imageView);
@@ -38,6 +40,8 @@ public interface ImageLoaderStrategy {
     void loadCircleBorderImage(String url, ImageView imageView, float borderWidth, int borderColor, int heightPx, int widthPx);
 
     void loadGifImage(String url, ImageView imageView);
+
+    void loadGif2CommonImage(String url, ImageView imageView);
 
     void loadImageWithProgress(String url, ImageView imageView, ProgressLoadListener listener);
 
