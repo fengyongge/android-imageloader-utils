@@ -35,15 +35,7 @@ class NotifyUtils {
                 value.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg")
                 value.put(MediaStore.Images.Media.DATA, destFile.absolutePath)
                 context.contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, value)
-                val contentUri = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    FileProvider.getUriForFile(
-                            context,
-                            "{applicationId}.fileProvider",
-                            destFile
-                    )
-                } else {
-                    Uri.fromFile(File(destFile.path))
-                }
+                val contentUri = FileProviderUtil.getFileUri(context,destFile,context.packageName+".fileProvider");
                 context.sendBroadcast(
                         Intent(
                                 Intent.ACTION_MEDIA_SCANNER_SCAN_FILE,
