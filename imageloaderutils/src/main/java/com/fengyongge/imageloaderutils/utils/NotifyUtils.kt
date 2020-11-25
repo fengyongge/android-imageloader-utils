@@ -1,17 +1,12 @@
 package com.fengyongge.imageloaderutils.utils
 
-import android.Manifest
-import android.app.Activity
 import android.content.ContentResolver
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
 import androidx.annotation.RequiresApi
-import androidx.core.content.FileProvider
 import java.io.*
 
 /**
